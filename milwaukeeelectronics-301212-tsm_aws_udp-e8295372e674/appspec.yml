@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+hooks:
+  ApplicationStop:
+    - location: scripts/stop-docker.sh
+      timeout: 300
+  BeforeInstall:
+    - location: scripts/pull-docker.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/run-docker.sh
+      timeout: 300
